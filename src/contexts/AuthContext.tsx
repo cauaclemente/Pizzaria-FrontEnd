@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useState } from "react";
 
-import { destroyCookie } from "nookies";
+import { api } from "../service/apiClient"
+
+import { destroyCookie, setCookie, parseCookies } from "nookies";
 import Router from "next/router";
 
 
@@ -42,8 +44,33 @@ export function AuthProvider({ children }: AuthProviderProps){
     const isAuthenticated = !!user;
 
     async function signIn({email, password}: SignInProps) {
-        console.log("Dados", email)
-        console.log("senha", password)
+        try{
+            const response = await api.post('/session', {
+                email,
+                password
+            })
+
+            const { id, name, token } = response.data;
+            
+            setCookie(undefined, "@lapizza.token", token, {
+                maxAge: 60 * 60 * 24 * 30, //Expira em 1 mes
+                path: '/'
+            })
+
+            setUser({
+                id,
+                name,
+                email,
+            })
+
+            //passar para proximas requisição o token
+            api.defaults.headers["Authorization"] = `Bearer ${token}`
+
+            Router.push('/dashboard')
+                
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return(
