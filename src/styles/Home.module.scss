@@ -16,6 +16,11 @@
     flex-direction: column;
     padding: 2rem 1.5rem;
 
+    h1{
+        color: var(--white);
+        padding-bottom: 1rem;
+    }
+
     form {
         width: 90%;
         display: flex;
@@ -32,7 +37,10 @@
 }
 .text{
     margin-top: 1rem;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--white);
+    text-decoration: none;
     cursor: pointer;
 }
 
