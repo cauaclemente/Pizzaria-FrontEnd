@@ -14,6 +14,7 @@ import logoImg from "../../public/logo.png"
 import { Input } from "../components/ui/input/input";
 import { Button } from "../components/ui/button/button"
 import { AuthContext } from "@/contexts/AuthContext";
+import { canSSRGuest } from "../utils/canSSRGuest"
 
 export default function Home() {
 
@@ -80,3 +81,10 @@ export default function Home() {
     </>
   );
 }
+
+export const getServiceSideProps = canSSRGuest(async (ctx) => {
+  
+  return {
+    props: {}
+  }
+})
