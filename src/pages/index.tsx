@@ -82,7 +82,7 @@ export default function Home() {
   );
 }
 
-export const getServiceSideProps = canSSRGuest(async (ctx) => {
+export const getServerSideProps = canSSRGuest(async (ctx) => {
   
   return {
     props: {}

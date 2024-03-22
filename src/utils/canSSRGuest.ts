@@ -6,7 +6,7 @@ export function canSSRGuest<P>(fn: GetServerSideProps<P>){
 
         const cookies = parseCookies(ctx);
         
-        if(cookies["@lapizza.token"]){
+        if(cookies["@lapizza.token"] ){
             return {
                 redirect:{
                     destination: '/dashboard',
