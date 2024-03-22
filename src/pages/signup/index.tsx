@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState, useContext } from "react"
+import { toast } from "react-toastify"
 
 import Head from "next/head";
 import Link from "next/link";
@@ -27,7 +28,7 @@ export default function SignUp(){
         event.preventDefault()
 
         if(name === "" || email === "" || name === ""){
-            alert("Preencha todos os campos")
+           toast.error("Preencha todos os campos")
             return;
         }
         setLoading(true)

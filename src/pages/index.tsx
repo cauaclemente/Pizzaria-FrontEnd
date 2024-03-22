@@ -1,6 +1,8 @@
 'use client';
 
 import { FormEvent, useContext, useState } from "react";
+import { toast } from "react-toastify"
+
 
 import Head from "next/head";
 import Link from "next/link";
@@ -21,7 +23,7 @@ export default function Home() {
     event.preventDefault()
 
     if(email === '' || password === ''){
-      alert("Preencja todos os campos")
+      toast.error("Preencja todos os campos")
       return
     }
 
