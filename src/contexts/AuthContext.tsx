@@ -1,11 +1,14 @@
-'use client'
-
 import { createContext, ReactNode, useState } from "react";
 
+import { destroyCookie } from "nookies";
+import Router from "next/router";
+
+
 type AuthContextData = {
-    user: UserProps | null;
-    isAuthenticated:  string | boolean ; 
+    user: UserProps;
+    isAuthenticated: boolean ; 
     signIn: (credentials: SignInProps) => Promise<void>;
+    signOut: () => void;
 }
 
 type UserProps = {
@@ -25,17 +28,33 @@ type AuthProviderProps = {
 
 export const AuthContext = createContext({} as AuthContextData);
 
+export function signOut(){
+    try{
+        destroyCookie(undefined, "@lapizza.token")
+        Router.push('/')
+    }catch{
+        console.log("Erro ao deslogar")
+    }
+}
+
 export function AuthProvider({ children }: AuthProviderProps){
     const [user, setUser] = useState<UserProps>(null);
     const isAuthenticated = !!user;
 
-    async function signIn() {
-        alert("Clicou login");
+    async function signIn({email, password}: SignInProps) {
+        console.log("Dados", email)
+        console.log("senha", password)
     }
 
     return(
-        <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
-            <>{children}</>     
+        <AuthContext.Provider value={{
+            user,
+            isAuthenticated, 
+            signIn,
+            signOut,
+            }}>
+                
+            {children}    
         </AuthContext.Provider>
     );
 }
