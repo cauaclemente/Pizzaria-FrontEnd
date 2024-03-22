@@ -1,3 +1,5 @@
+'use client'
+
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +11,8 @@ import { Input } from "../../components/ui/input/input";
 import { Button } from "../../components/ui/button/button"
 
 export default function SignUp(){
+
+
     return(
         <>
         <Head>
