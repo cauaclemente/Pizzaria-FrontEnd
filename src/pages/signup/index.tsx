@@ -1,5 +1,7 @@
 'use client';
 
+import { FormEvent, useState, useContext } from "react"
+
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,9 +11,37 @@ import logoImg from "../../../public/logo.png"
 
 import { Input } from "../../components/ui/input/input";
 import { Button } from "../../components/ui/button/button"
+import { AuthContext } from "../../contexts/AuthContext"
 
 export default function SignUp(){
 
+    const { signUp } = useContext(AuthContext)
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const [loading, setLoading] = useState(false)
+
+    async function handleSignUp(event: FormEvent){
+        event.preventDefault()
+
+        if(name === "" || email === "" || name === ""){
+            alert("Preencha todos os campos")
+            return;
+        }
+        setLoading(true)
+
+        let data = {
+            name,
+            email,
+            password
+        }
+
+        await signUp(data)
+
+        setLoading(false)
+    }
 
     return(
         <>
@@ -24,22 +54,28 @@ export default function SignUp(){
         <div className={styles.login}>
             <h1>Criando sua conta</h1>
 
-            <form>
+            <form onSubmit={handleSignUp}>
             <Input
-                type="text"
                 placeholder="Digite seu nome"
-            />
-            <Input
                 type="text"
-                placeholder="Digite seu email"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
             />
             <Input
-                type="password"
+                placeholder="Digite seu email"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <Input
                 placeholder="Sua senha"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
             />
             <Button 
                 type="submit"
-                loading={false}
+                loading={loading}
             >
                 Cadastrar
             </Button>
