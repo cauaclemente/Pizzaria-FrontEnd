@@ -25,7 +25,7 @@ export default function Header(){
               <span> Cardapio </span>
             </Link>
             <button onClick={signOut}>
-              <FiLogOut size={24} color="#fff" />
+              <FiLogOut size={24}  />
             </button>
           </nav>
         </div>

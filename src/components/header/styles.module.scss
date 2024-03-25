@@ -24,6 +24,7 @@
     transition: color 0.7s;
     text-decoration: none;
     margin-left: 2rem;
+    transition: color 0.7s;
 
     &:hover{
       color: var(--red-900);
@@ -32,6 +33,7 @@
   }
 
   button {
+    color: var(--white);
     margin-left: 2rem;
     background: transparent; 
     border: 0;
@@ -39,17 +41,16 @@
 
     &:hover{
       transform: scale(1.2);
+      color: var(--red-900);
     }
   }
 
 }
 
 @media (max-width: 440px){
-  .headerContent{
-    img{
+  .headerContent img{
       height: 65px;
       margin-left: -20%
-    }
   }
   
   .menuNav{
@@ -64,9 +65,7 @@
 }
 
 @media (max-width: 370px){
-  .headerContent{
-    img{
-      height: 60px;
-    }
+  .headerContent img{
+    height: 60px;
   }
 }
