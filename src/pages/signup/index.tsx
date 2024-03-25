@@ -16,76 +16,76 @@ import { AuthContext } from "../../contexts/AuthContext"
 
 export default function SignUp(){
 
-    const { signUp } = useContext(AuthContext)
+  const { signUp } = useContext(AuthContext)
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-    async function handleSignUp(event: FormEvent){
-        event.preventDefault()
+  async function handleSignUp(event: FormEvent){
+    event.preventDefault()
 
-        if(name === "" || email === "" || name === ""){
-           toast.error("Preencha todos os campos")
-            return;
-        }
-        setLoading(true)
+    if(name === "" || email === "" || name === ""){
+      toast.error("Preencha todos os campos")
+      return;
+    }
+    setLoading(true)
 
-        let data = {
-            name,
-            email,
-            password
-        }
-
-        await signUp(data)
-
-        setLoading(false)
+    let data = {
+      name,
+      email,
+      password
     }
 
-    return(
-        <>
-        <Head>
-            <title>LaPizza - Faça seu cadastro</title>
-        </Head>
-        <div className={styles.containerCenter}>
-            <Image src={logoImg} alt="Logo LaPizza" />
+    await signUp(data)
 
-        <div className={styles.login}>
-            <h1>Criando sua conta</h1>
+    setLoading(false)
+  }
 
-            <form onSubmit={handleSignUp}>
-            <Input
-                placeholder="Digite seu nome"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <Input
-                placeholder="Digite seu email"
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <Input
-                placeholder="Sua senha"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button 
-                type="submit"
-                loading={loading}
-            >
-                Cadastrar
-            </Button>
-            </form>
+  return(
+      <>
+      <Head>
+        <title>LaPizza - Faça seu cadastro</title>
+      </Head>
+      <div className={styles.containerCenter}>
+        <Image src={logoImg} alt="Logo LaPizza" />
+
+      <div className={styles.login}>
+        <h1>Criando sua conta</h1>
+
+      <form onSubmit={handleSignUp}>
+        <Input
+          placeholder="Digite seu nome"
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          />
+        <Input
+          placeholder="Digite seu email"
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          />
+        <Input
+          placeholder="Sua senha"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          />
+        <Button 
+          type="submit"
+          loading={loading}
+          >
+            Cadastrar
+        </Button>
+          </form>
             <Link href="/">
               <h3 className={styles.text}>ja possui uma conta? <span style={{color : "blue"}}>Faça login</span> </h3>  
             </Link>
-            </div>
-        </div>
-    </>
-    )
+          </div>
+      </div>
+  </>
+)
 }

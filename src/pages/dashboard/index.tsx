@@ -1,16 +1,24 @@
+import Head from "next/head"
 import { canSSRAuth } from "../../utils/canSSRAuth"
+import  Header  from "../../components/header/index"
 
 
 export default function Dashboard(){
-    return(
-        <div>
-            <h1> Tela de painel</h1>
-        </div>
-    )
+  return(
+    <>
+    <Head>
+        <title>Painel - LaPizza</title> 
+    </Head>
+      <div>
+        <Header />
+      </div>
+    </>
+  )
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
-    return {
-        props:{}
-    }
+  return {
+      props:{}
+  }
 })
+
