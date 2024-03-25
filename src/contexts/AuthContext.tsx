@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
 
 import { api } from "../service/apiClient"
 
@@ -51,6 +51,26 @@ export function signOut(){
 export function AuthProvider({ children }: AuthProviderProps){
     const [user, setUser] = useState<UserProps>(null);
     const isAuthenticated = !!user;
+
+    useEffect(() => {
+        const { "@lapizza.token": token } = parseCookies();
+
+        if(token){
+            api.get('/me').then(response => {
+                const { id, email, name} = response.data;
+            
+                setUser({
+                    id,
+                    email,
+                    name,
+                })
+            }) 
+            .catch(() => {
+                signOut();
+            }) 
+
+        }
+    },[])
 
     async function signIn({email, password}: SignInProps) {
         try{
