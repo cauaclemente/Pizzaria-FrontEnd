@@ -3,6 +3,8 @@ import Head from "next/head";
 import styles from "./styles.module.scss";
 
 import Header from "@/components/header";
+import { toast } from "react-toastify";
+import { setupAPIClient } from "@/service/api";
 
 export default function Category(){
 
@@ -11,7 +13,17 @@ export default function Category(){
   async function handleRegister(event: FormEvent){
     event.preventDefault()
 
-    alert("categoria")
+    if(name === ""){
+      return;
+    }
+
+    const apiClient = setupAPIClient();
+    await apiClient.post('/category', {
+      name: name
+    })
+
+    toast.success("Categoria cadastrada")
+    setName("")
   }
 
   return(
