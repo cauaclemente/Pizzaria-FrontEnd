@@ -1,0 +1,84 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  max-width: 720px;
+  
+
+  h1{
+    color: var(--white);
+  }
+}
+
+.form{
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+
+  select{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    background-color: var(--dark-900);
+    color: var(--white);
+    padding: 0 0.5rem;
+    border: 1px solid var(--gray-100);
+  }
+}
+
+.quantidade{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 1rem;
+
+  span{
+    width: 20%;
+    color: var(--white);
+    font-size: 1.5rem;
+  }
+}
+
+.input{
+  background-color: var(--dark-900);
+  color: var(--white);
+  border: 0;
+  width: 100%;
+  height: 40px;
+  margin-left: 10px;
+  padding: 0 0.5rem;
+}
+
+.actions{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 40px;
+}
+
+.buttonAdd{
+  height: 40px;
+  width: 20%;
+  font-size: 2rem;
+  border: 0;
+  border-radius: 0.3rem;
+  color: var(--white);
+  background-color: rgb(85, 85, 255);
+}
+
+.button{
+  height: 40px;
+  width: 80%;
+  border: 0;
+  border-radius: 0.3rem;
+  margin-left: 5%;
+  background-color: var(--gray-900);
+  font-size: 1.1rem;
+  font-weight: bold;
+}

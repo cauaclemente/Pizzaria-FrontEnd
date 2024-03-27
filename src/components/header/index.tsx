@@ -18,6 +18,9 @@ export default function Header(){
             <img src="/logo.png" alt="Logo da pizzaria" height={80}  />
           </Link>
           <nav className={styles.menuNav}>
+            <Link href='/order'>
+              <span> Pedido </span>
+            </Link>
             <Link href='/category'>
               <span> Categoria </span>
             </Link>

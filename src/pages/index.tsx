@@ -73,8 +73,8 @@ export default function Home() {
             Acessar
           </Button>
         </form>
-        <Link href="/signup">
-           <h3 className={styles.text}>Não possui uma conta? <span style={{color : "blue"}}>Cadastra-se</span> </h3>
+        <Link style={{textDecoration: "none"}} href="/signup">
+           <h3  className={styles.text}>Não possui uma conta? <span style={{color : "blue"}}>Cadastra-se</span> </h3>
         </Link>
         </div>
       </div>
