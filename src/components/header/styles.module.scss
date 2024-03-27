@@ -47,25 +47,30 @@
 
 }
 
-@media (max-width: 440px){
+@media (max-width: 550px){
   .headerContent img{
-      height: 65px;
+      height: 50px;
       margin-left: -20%
   }
-  
   .menuNav{
     span{
       margin-left: 0;
     } 
+  }
+}
+
+@media (max-width: 440px){
+  .headerContent img{
+      height: 45px;
+      margin-left: -20%
+  }
+  .menuNav{
+    span{
+      font-size: 13px;
+    }
     button{
       margin-left: 1rem;
     }
   }
 
-}
-
-@media (max-width: 370px){
-  .headerContent img{
-    height: 60px;
-  }
 }

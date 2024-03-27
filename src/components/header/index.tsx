@@ -9,6 +9,7 @@ import { AuthContext } from "../../contexts/AuthContext"
 export default function Header(){
 
   const { signOut } = useContext(AuthContext)
+  
 
   return(
     <>
