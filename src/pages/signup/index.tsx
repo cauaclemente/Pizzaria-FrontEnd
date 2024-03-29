@@ -1,12 +1,13 @@
 'use client';
 
+import styles from "../home.module.scss";
+
 import { FormEvent, useState, useContext } from "react"
 import { toast } from "react-toastify"
 
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../../styles/home.module.scss"
 
 import logoImg from "../../../public/logo.png"
 
