@@ -81,7 +81,7 @@ export default function SignUp(){
             Cadastrar
         </Button>
           </form>
-            <Link href="/">
+            <Link style={{textDecoration: "none"}} href="/">
               <h3 className={styles.text}>ja possui uma conta? <span style={{color : "blue"}}>Faça login</span> </h3>  
             </Link>
           </div>

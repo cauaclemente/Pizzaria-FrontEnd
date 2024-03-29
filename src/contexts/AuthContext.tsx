@@ -44,7 +44,7 @@ export function signOut(){
         destroyCookie(undefined, "@lapizza.token")
         Router.push('/')
     }catch{
-        console.log("Erro ao deslogar")
+        toast.error("Erro ao deslogar")
     }
 }
 
@@ -95,7 +95,7 @@ export function AuthProvider({ children }: AuthProviderProps){
             //passar para proximas requisição o token
             api.defaults.headers["Authorization"] = `Bearer ${token}`
 
-            toast.success("Bem vindo" + name)
+            toast.success("Bem vindo " + name)
             Router.push('/dashboard')
                 
         }catch{

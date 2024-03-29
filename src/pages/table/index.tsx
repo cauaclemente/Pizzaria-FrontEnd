@@ -116,7 +116,7 @@ export default function table({ orderList }){
               onChange={(e) => setTable(e.target.value)}> 
               {orderList.map(item => (
                 <option key={item.id} value={item.id}>
-                  Mesa :{item.table}
+                  Mesa : {item.table}
                 </option>
               ))}
             </select>

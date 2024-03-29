@@ -7,7 +7,7 @@ export function setupAPIClient(ctx?){
     let cookies = parseCookies(ctx);
 
     const api = axios.create({
-        baseURL: "http://localhost:3333",
+        baseURL: "https://api-lapizza.onrender.com/",
         headers: {
             Authorization: `Bearer ${cookies["@lapizza.token"]}`
         }
