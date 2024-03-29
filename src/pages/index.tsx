@@ -1,20 +1,20 @@
 'use client';
 
 import { FormEvent, useContext, useState } from "react";
-import { toast } from "react-toastify"
+import styles from "../styles/home.module.scss";
+import { toast } from "react-toastify";
 
 
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "../styles/home.module.scss"
 
-import logoImg from "../../public/logo.png"
+import logoImg from "../../public/logo.png";
 
 import { Input } from "../components/ui/input/input";
-import { Button } from "../components/ui/button/button"
+import { Button } from "../components/ui/button/button";
 import { AuthContext } from "@/contexts/AuthContext";
-import { canSSRGuest } from "../utils/canSSRGuest"
+import { canSSRGuest } from "../utils/canSSRGuest";
 
 export default function Home() {
 
